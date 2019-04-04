@@ -1,0 +1,13 @@
+.grid-container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+  list-style: none;
+}
+
+.name__card {
+  text-align: left;
+  background-color: black;
+  color: white;
+  width: 300px;
+}
