@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./styles/navbar.css";
+import { Link } from "react-router-dom";
 import Modal from "./Modal";
 class Profile extends Component {
   state = {
@@ -20,11 +21,18 @@ class Profile extends Component {
           {this.props.character.map(badge => {
             return (
               <li className="grid-item" key={badge.id}>
-                <img src={badge.image} />
+                <Link
+                  to={`/characters/${badge.id}`}
+                  className="btn btn-primary"
+                >
+                  <img src={badge.image} />
+                </Link>
                 <div className="name__card">
                   {badge.name}
-                  <button id={badge.id} onClick={this.props.onOpen}>
-                    Modal
+
+                  <button>
+                    {/*id={badge.id} onClick={this.props.onOpen}*/}
+                    Info
                   </button>
                 </div>
                 {/* <Modal
