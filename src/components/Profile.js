@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./styles/navbar.css";
 import { Link } from "react-router-dom";
 import Modal from "./Modal";
+import "./styles/Badge.css";
 class Profile extends Component {
   state = {
     // modalIsOpen: false
@@ -20,21 +21,11 @@ class Profile extends Component {
         <ul className="grid-container">
           {this.props.character.map(badge => {
             return (
-              <li className="grid-item" key={badge.id}>
-                <Link
-                  to={`/characters/${badge.id}`}
-                  className="btn btn-primary"
-                >
+              <li className="grid-item profile" key={badge.id}>
+                <Link to={`/characters/${badge.id}`}>
                   <img src={badge.image} />
                 </Link>
-                <div className="name__card">
-                  {badge.name}
-
-                  <button>
-                    {/*id={badge.id} onClick={this.props.onOpen}*/}
-                    Info
-                  </button>
-                </div>
+                <div className="name__card">{badge.name}</div>
                 {/* <Modal
                   onClose={this.handleCloseModal}
                   isOpen={this.state.modalIsOpen}

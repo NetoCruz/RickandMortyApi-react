@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Profile from "./Profile";
 import Modal from "./Modal";
+import PageLoading from "./PageLoading";
 
 class Personajes extends Component {
   state = {
@@ -34,7 +35,7 @@ class Personajes extends Component {
       const data = await response.json();
 
       this.setState({
-        loading: true,
+        loading: false,
         data: {
           info: data.info,
           results: [].concat(this.state.data.results, data.results)
@@ -48,6 +49,9 @@ class Personajes extends Component {
   };
   render() {
     console.log(this.state.data.results);
+    if (this.state.loading === true) {
+      return <PageLoading />;
+    }
 
     return (
       <div>
